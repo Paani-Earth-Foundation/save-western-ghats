@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="kn">
 
@@ -10,7 +11,7 @@
     <style>
         body {
             font-family: Arial, "Noto Sans Kannada", sans-serif;
-            line-height: 1.7;
+            line-height: 1.75;
             max-width: 900px;
             margin: 0 auto;
             padding: 30px 20px;
@@ -19,15 +20,15 @@
         }
 
         .container {
-            background: white;
+            background: #fff;
             padding: 35px;
             border-radius: 8px;
         }
 
         h1 {
-            font-size: 26px;
+            font-size: 28px;
             line-height: 1.4;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         h2 {
@@ -49,27 +50,43 @@
             font-weight: bold;
         }
 
-        .instructions {
-            font-size: 18px;
-            margin: 25px 0;
-        }
+        /* Instruction shown at top and bottom */
 
-        .paste-instruction {
-            font-size: 21px;
+        .copy-instruction {
+            margin: 25px 0 35px 0;
+            padding: 18px 20px;
+            background: #fff4f4;
+            border-radius: 6px;
+            font-size: 20px;
             font-weight: bold;
             color: #c62828;
+            line-height: 1.6;
         }
 
-        .button-area {
-            margin: 30px 0;
+        .email-section {
+            margin-top: 45px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+        }
+
+        .email-section h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .email-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
         }
 
         .email-button {
-            display: inline-block;
             padding: 14px 24px;
             border: none;
-            border-radius: 5px;
-            font-size: 18px;
+            border-radius: 6px;
+            font-size: 17px;
             cursor: pointer;
             background: #333;
             color: white;
@@ -84,6 +101,7 @@
         }
 
         @media (max-width: 600px) {
+
             body {
                 padding: 10px;
             }
@@ -93,7 +111,15 @@
             }
 
             h1 {
-                font-size: 22px;
+                font-size: 23px;
+            }
+
+            .copy-instruction {
+                font-size: 18px;
+            }
+
+            .email-options {
+                flex-direction: column;
             }
 
             .email-button {
@@ -101,6 +127,7 @@
             }
         }
     </style>
+
 </head>
 
 <body>
@@ -109,31 +136,15 @@
 
     <h1>ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಪರಿಸರ ಸೂಕ್ಷ್ಮ ಪ್ರದೇಶ (ESA)</h1>
 
-    <div class="instructions">
-        <p>
-            ಕೆಳಗಿನ ಮನವಿಯನ್ನು ಓದಿ. ನೀವು ಒಪ್ಪಿದರೆ ಕೆಳಗಿನ ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ
-            MoEFCCಗೆ ಇಮೇಲ್ ಮೂಲಕ ಕಳುಹಿಸಬಹುದು.
-        </p>
+    <!-- TOP INSTRUCTION - NO BUTTON HERE -->
 
-        <p>
-            ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿದಾಗ ಮನವಿಯ ಸಂಪೂರ್ಣ ಪಠ್ಯವು ನಿಮ್ಮ clipboardಗೆ copy ಆಗುತ್ತದೆ
-            ಮತ್ತು ನಿಮ್ಮ email ತೆರೆಯುತ್ತದೆ.
-        </p>
-
-        <p class="paste-instruction">
-            Email ತೆರೆದ ನಂತರ, ದಯವಿಟ್ಟು ಪಠ್ಯವನ್ನು email bodyಯಲ್ಲಿ paste ಮಾಡಿ ಕಳುಹಿಸಿ.
-        </p>
+    <div class="copy-instruction">
+        ಕೆಳಗಿನ ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿದಾಗ, ಪತ್ರದ ಪಠ್ಯವು ನಿಮ್ಮ clipboardಗೆ copy ಆಗುತ್ತದೆ.
+        Email ತೆರೆದ ನಂತರ, ದಯವಿಟ್ಟು ಅದನ್ನು email bodyಯಲ್ಲಿ paste ಮಾಡಿ.
     </div>
 
 
-    <div class="button-area">
-        <button class="email-button" onclick="copyAndEmail()">
-            MoEFCCಗೆ ಇಮೇಲ್ ಕಳುಹಿಸಿ
-        </button>
-    </div>
-
-
-    <!-- EVERYTHING INSIDE THIS DIV IS COPIED TO THE CLIPBOARD -->
+    <!-- EVERYTHING INSIDE THIS DIV WILL BE COPIED -->
 
     <div id="letter">
 
@@ -147,8 +158,9 @@
         </p>
 
         <p class="subject">
-            ವಿಷಯ: ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಪರಿಸರ ಸೂಕ್ಷ್ಮ ಪ್ರದೇಶ (ESA): ಸಲ್ಲಿಸಲಾದ ಶಿಫಾರಸುಗಳನ್ನು
-            ಪರಿಗಣಿಸಿ 7ನೇ ಕರಡು ಅಧಿಸೂಚನೆಯನ್ನು ಅಂತಿಮಗೊಳಿಸುವ ಕುರಿತು ಮನವಿ
+            ವಿಷಯ: ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಪರಿಸರ ಸೂಕ್ಷ್ಮ ಪ್ರದೇಶ (ESA):
+            ಸಲ್ಲಿಸಲಾದ ಶಿಫಾರಸುಗಳನ್ನು ಪರಿಗಣಿಸಿ 7ನೇ ಕರಡು ಅಧಿಸೂಚನೆಯನ್ನು
+            ಅಂತಿಮಗೊಳಿಸುವ ಕುರಿತು ಮನವಿ
         </p>
 
         <p>ಮಾನ್ಯರೇ,</p>
@@ -669,12 +681,32 @@
     </div>
 
 
-    <!-- BUTTON REPEATED AT THE END -->
+    <!-- BOTTOM INSTRUCTIONS + EMAIL OPTIONS -->
 
-    <div class="button-area">
-        <button class="email-button" onclick="copyAndEmail()">
-            MoEFCCಗೆ ಇಮೇಲ್ ಕಳುಹಿಸಿ
-        </button>
+    <div class="email-section">
+
+        <div class="copy-instruction">
+            ಕೆಳಗಿನ ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿದಾಗ, ಪತ್ರದ ಸಂಪೂರ್ಣ ಪಠ್ಯವು ಸ್ವಯಂಚಾಲಿತವಾಗಿ copy ಆಗುತ್ತದೆ. Email ತೆರೆದ ನಂತರ, ದಯವಿಟ್ಟು email bodyಯಲ್ಲಿ paste ಮಾಡಿ.
+        </div>
+
+        <h2>ಇಮೇಲ್ ಕಳುಹಿಸಲು ಆಯ್ಕೆ ಮಾಡಿ</h2>
+
+        <div class="email-options">
+
+            <button class="email-button" onclick="copyAndOpenEmail('gmail')">
+                Gmail ಮೂಲಕ ಕಳುಹಿಸಿ
+            </button>
+
+            <button class="email-button" onclick="copyAndOpenEmail('yahoo')">
+                Yahoo Mail ಮೂಲಕ ಕಳುಹಿಸಿ
+            </button>
+
+            <button class="email-button" onclick="copyAndOpenEmail('default')">
+                ಇತರ Email ಮೂಲಕ ಕಳುಹಿಸಿ
+            </button>
+
+        </div>
+
     </div>
 
 </div>
@@ -682,68 +714,137 @@
 
 <script>
 
-function copyAndEmail() {
+function copyAndOpenEmail(provider) {
 
     const letter = document.getElementById("letter").innerText;
+
+    const email = "esz-mef@nic.in";
 
     const subject =
         "ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಪರಿಸರ ಸೂಕ್ಷ್ಮ ಪ್ರದೇಶ (ESA): " +
         "7ನೇ ಕರಡು ಅಧಿಸೂಚನೆಯನ್ನು ಅಂತಿಮಗೊಳಿಸುವ ಕುರಿತು ಮನವಿ";
 
-    navigator.clipboard.writeText(letter)
-        .then(function() {
 
-            /*
-             * The full Kannada letter has now been copied.
-             * Open the user's email application.
-             */
+    function openEmail() {
 
-            window.location.href =
-                "mailto:esz-mef@nic.in?subject=" +
+        let emailURL;
+
+        if (provider === "gmail") {
+
+            emailURL =
+                "https://mail.google.com/mail/?view=cm&fs=1" +
+                "&to=" + encodeURIComponent(email) +
+                "&su=" + encodeURIComponent(subject);
+
+        }
+
+        else if (provider === "yahoo") {
+
+            emailURL =
+                "https://compose.mail.yahoo.com/?to=" +
+                encodeURIComponent(email) +
+                "&subject=" + encodeURIComponent(subject);
+
+        }
+
+        else {
+
+            emailURL =
+                "mailto:" +
+                email +
+                "?subject=" +
                 encodeURIComponent(subject);
 
-        })
-        .catch(function(error) {
+        }
 
-            /*
-             * Fallback for browsers where the Clipboard API
-             * may not be available.
-             */
+        window.open(emailURL, "_blank");
+    }
 
-            const textArea = document.createElement("textarea");
 
-            textArea.value = letter;
-            textArea.style.position = "fixed";
-            textArea.style.left = "-9999px";
+    /*
+       Copy full Kannada letter to clipboard first
+    */
 
-            document.body.appendChild(textArea);
+    if (navigator.clipboard && window.isSecureContext) {
 
-            textArea.focus();
-            textArea.select();
+        navigator.clipboard.writeText(letter)
 
-            try {
+            .then(function() {
+                openEmail();
+            })
 
-                document.execCommand("copy");
+            .catch(function() {
+                fallbackCopy(letter);
+                openEmail();
+            });
 
-                window.location.href =
-                    "mailto:esz-mef@nic.in?subject=" +
-                    encodeURIComponent(subject);
+    }
 
-            } catch (err) {
+    else {
 
-                alert(
-                    "ಪಠ್ಯವನ್ನು ಕಾಪಿ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. " +
-                    "ದಯವಿಟ್ಟು ಪಠ್ಯವನ್ನು manually copy ಮಾಡಿ."
-                );
+        fallbackCopy(letter);
+        openEmail();
 
-            }
+    }
 
-            document.body.removeChild(textArea);
+}
 
-        });
+
+function fallbackCopy(text) {
+
+    const textArea = document.createElement("textarea");
+
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+    textArea.style.top = "0";
+
+    document.body.appendChild(textArea);
+
+    textArea.focus();
+    textArea.select();
+
+    try {
+        document.execCommand("copy");
+    }
+
+    catch (err) {
+        console.error("Copy failed", err);
+    }
+
+    document.body.removeChild(textArea);
 }
 
 </script>
 
 </body>
-</html>
+</html>      
+      
+           
+       
+           
+
+       
+   
+
+     
+            
+       
+  
+    
+
+       
+  
+            
+        
+
+        
+            
+
+       
+    
+        
+
+            
+
+
